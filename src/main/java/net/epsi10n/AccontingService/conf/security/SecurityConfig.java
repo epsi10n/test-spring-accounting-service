@@ -19,11 +19,16 @@ import org.springframework.security.web.authentication.session.SessionAuthentica
  */
 @EnableGlobalMethodSecurity(jsr250Enabled = true, securedEnabled = true)
 public class SecurityConfig extends KeycloakWebSecurityConfigurerAdapter {
+    @Value("${slabs.security.auth-enabled}")
+    private Boolean authEnabled;
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         super.configure(http);
 
-        String[] patterns = new String[] {"/swagger/**", "/v3/**", "/actuator/**"};
+        String[] patterns = authEnabled
+                ? new String[] {"/swagger/**", "/v3/**", "/actuator/**"}
+                : new String[] {"/swagger/**", "/v3/**", "/actuator/**", "/api/**"};
 
         http.cors().and().csrf().disable().sessionManagement().
                 sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().

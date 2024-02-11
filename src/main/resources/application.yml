@@ -16,3 +16,5 @@ accounting_server:
 spring:
   liquibase:
     change-log: classpath:db/changelog/db.changelog-master.xml
+accounting:
+  auth-enabled: false

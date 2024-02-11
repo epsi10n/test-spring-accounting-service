@@ -24,36 +24,39 @@ public class UserController {
     }
 
     @PutMapping("/addPhone/{id}")
-    CreationResponse addPhone(@PathVariable Long id, @RequestBody @Valid UserDataChangeRequest data) throws NotFoundException {
+    CreationResponse addPhone(@PathVariable Long id,
+                              @RequestBody @Valid UserDataChangeRequest data) throws NotFoundException {
         return userService.addPhone(id, data);
     }
 
     @PutMapping("/addEmail/{id}")
-    CreationResponse addEmail(@PathVariable Long id, @RequestBody @Valid UserDataChangeRequest data) throws NotFoundException {
+    CreationResponse addEmail(@PathVariable Long id,
+                              @RequestBody @Valid UserDataChangeRequest data) throws NotFoundException {
         return userService.addEmail(id, data);
     }
 
     @PostMapping("/updatePhone/{id}")
-    CreationResponse updatePhone(@PathVariable Long id, @RequestBody UserDataChangeRequest data) throws NotFoundException {
-        // TODO add or update data
+    CreationResponse updatePhone(@PathVariable Long id,
+                                 @RequestBody UserDataChangeRequest data) throws NotFoundException {
         return userService.updatePhone(id, data);
     }
 
     @PostMapping("/updateEmail/{id}")
-    CreationResponse updateEmail(@PathVariable Long id, @RequestBody UserDataChangeRequest data) throws NotFoundException {
-        // TODO add or update data
+    CreationResponse updateEmail(@PathVariable Long id,
+                                 @RequestBody UserDataChangeRequest data) throws NotFoundException {
         return userService.updateEmail(id, data);
     }
 
     @DeleteMapping("/delete/{id}")
-    CreationResponse deletePhoneOrEmail(@PathVariable Long id, @RequestBody UserData data) {
-        // TODO add or update data
-        return null;
+    CreationResponse deletePhoneOrEmail(@PathVariable Long id,
+                                        @RequestBody UserData data) {
+        return userService.deletePhoneOrEmail(id, data);
     }
 
     @GetMapping("/data")
     @ResponseBody
-    UserData getUser(@RequestParam String email, @RequestParam String phone) {
+    UserData getUser(@RequestParam String email,
+                     @RequestParam String phone) {
         // TODO return unique user
         return null;
     }
