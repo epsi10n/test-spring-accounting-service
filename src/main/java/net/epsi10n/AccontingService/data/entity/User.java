@@ -1,6 +1,8 @@
 package net.epsi10n.AccontingService.data.entity;
 
-import jakarta.persistence.*;
+
+import javax.persistence.*;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

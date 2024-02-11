@@ -1,5 +1,12 @@
 server:
   port: 6000
+keycloak:
+  auth-server-url: http://127.0.0.1/auth
+  realm: accounting
+  resource: accounting-client
+  principal-attribute: preferred_username
+  use-resource-role-mappings: true
+  ssl-required: external
 accounting_server:
   datasource:
     accounting_postgres_data_source:
