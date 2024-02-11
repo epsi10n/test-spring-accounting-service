@@ -1,0 +1,11 @@
+server:
+  port: 6000
+accounting_server:
+  datasource:
+    accounting_postgres_data_source:
+      url: jdbc:postgresql://127.0.0.1:5432/accounting_db
+      username: accounting_user
+      password: accounting_db_123
+spring:
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.xml

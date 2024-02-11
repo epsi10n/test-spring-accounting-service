@@ -1,0 +1,23 @@
+services:
+  test_postgres_db:
+    image: "postgres:16.1"
+    restart: unless-stopped
+    ports:
+        - 5432:5432
+    container_name: "test_postgres_db"
+    environment:
+        POSTGRES_PASSWORD: accounting_db_123
+        POSTGRES_DB: accounting_db
+        POSTGRES_USER: accounting_user
+    volumes:
+        - ~/accounting_db_data:/var/lib/postgresql/data
+  transaction_queue_server:
+    image: "redis:7.0.15"
+    restart: unless-stopped
+    ports:
+      - 6379:6379
+    volumes:
+      - ~/accounting_transactions_data:/root/redis
+    container_name: "transaction_queue_server"
+networks:
+  accounting:
