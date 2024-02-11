@@ -1,6 +1,9 @@
 package net.epsi10n.AccontingService.service;
 
+import net.epsi10n.AccontingService.data.dto.CreationResponse;
 import net.epsi10n.AccontingService.data.dto.UserData;
+import net.epsi10n.AccontingService.data.dto.request.UserDataChangeRequest;
+import net.epsi10n.AccontingService.exception.NotFoundException;
 
 import java.util.List;
 
@@ -14,7 +17,7 @@ public interface UserService {
      * @param data
      * @return
      */
-    UserData addPhoneOrEmail(Long id, UserData data);
+    CreationResponse addPhone(Long id, UserDataChangeRequest data) throws NotFoundException;
 
     /**
      *
@@ -22,7 +25,7 @@ public interface UserService {
      * @param data
      * @return
      */
-    UserData updatePhoneOrEmail(Long id, UserData data);
+    CreationResponse addEmail(Long id, UserDataChangeRequest data) throws NotFoundException;
 
     /**
      *
@@ -30,7 +33,23 @@ public interface UserService {
      * @param data
      * @return
      */
-    UserData deletePhoneOrEmail(Long id, UserData data);
+    CreationResponse updatePhone(Long id, UserDataChangeRequest data) throws NotFoundException;
+
+    /**
+     *
+     * @param id
+     * @param data
+     * @return
+     */
+    CreationResponse updateEmail(Long id, UserDataChangeRequest data) throws NotFoundException;
+
+    /**
+     *
+     * @param id
+     * @param data
+     * @return
+     */
+    CreationResponse deletePhoneOrEmail(Long id, UserData data);
 
     /**
      *

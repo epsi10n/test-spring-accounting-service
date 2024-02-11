@@ -6,13 +6,13 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 @Getter
 @Setter
 @NoArgsConstructor
-@JsonIgnoreProperties(ignoreUnknown = true)
-public class UserData {
-    @JsonProperty("email")
-    private String email;
-    @JsonProperty("phone")
-    private String phone;
+public class CreationResponse {
+    @JsonProperty("reason")
+    private String reason;
+    @JsonProperty("code")
+    private Integer code;
 }

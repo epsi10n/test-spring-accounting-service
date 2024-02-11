@@ -27,4 +27,9 @@ public interface AccountingService {
      * @return
      */
     UpdateBalanceResult updateBalance(Long userId, BigDecimal amount);
+
+    /**
+     *
+     */
+    void checkAndUpdateBalances();
 }
